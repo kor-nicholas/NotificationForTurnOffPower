@@ -3,7 +3,10 @@ package NotificationForTurnOffPower.user;
 import NotificationForTurnOffPower.power.PowerService;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.websocket.server.PathParam;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "users")
@@ -13,10 +16,15 @@ public class UserController {
         this.userService = userService;
     }
 
-//    @GetMapping(path = "getByTelegramId/{telegramid}")
-//    public User getUserForTelegramId(Integer telegramid) {
-//        return userService.getUserByTelegramId(telegramid);
-//    }
+    @GetMapping(path = "getByTelegramId/{telegramid}")
+    public User getUserForTelegramId(@PathVariable Integer telegramid) {
+        return userService.getUserByTelegramId(telegramid);
+    }
+
+    @GetMapping(path = "getAll")
+    public List<User> getAllUsers() {
+        return  userService.getAllUsers();
+    }
 
     @PostMapping(path = "add")
     public void addNewUser(@RequestBody User user) {
@@ -28,6 +36,7 @@ public class UserController {
         userService.changeUser(user);
     }
 
-    @DeleteMapping(path = "delete/{id}")
-    public void deleteUser(@PathVariable Integer id) { userService.deleteUser(id); }
+    @Transactional
+    @DeleteMapping(path = "deleteByTelegramId/{telegramid}")
+    public void deleteUser(@PathVariable Integer telegramid) { userService.deleteUserByTelegramId(telegramid); }
 }

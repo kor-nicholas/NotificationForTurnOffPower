@@ -3,6 +3,7 @@ package NotificationForTurnOffPower.powerPlant;
 import NotificationForTurnOffPower.user.User;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -25,5 +26,9 @@ public class PowerPlantService {
 
             powerPlantRepository.save(localPowerPlantFromBase);
         }
+    }
+
+    public List<PowerPlant> getAllPowerPlants() {
+        return powerPlantRepository.findAll();
     }
 }
