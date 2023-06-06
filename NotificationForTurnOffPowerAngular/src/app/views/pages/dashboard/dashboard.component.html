@@ -1,0 +1,97 @@
+
+<c-row>
+  <c-col xs>
+    <c-card class="mb-4">
+      <c-card-header>Обліковий запис</c-card-header>
+      <c-card-body>
+        <p><b>Ім'я</b>: {{ user.name }}</p>
+        <p><b>Прізвище</b>: {{ user.surname }}</p>
+        <p><b>Логін</b>: {{ user.login }}</p>
+        <p><b>Дата народження</b>: {{ user.dateOfBirthday }}</p>
+        <p><b>Вік</b>: {{ user.age }}</p>
+        <p><b>Місто</b>: {{ user.city }}</p>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
+
+<c-row>
+  <c-col xs>
+    <c-card class="mb-4">
+      <c-card-header>Зміна облікового запису</c-card-header>
+      <c-card-body>
+        <form cForm>
+          <div class="mb-3">
+            <label  cLabel for="name">Нове ім'я</label>
+            <input cFormControl id="name" type="text" (input)="inputName($event)">
+          </div>
+          <div class="mb-3">
+            <label  cLabel for="surname">Нове прізвище</label>
+            <input cFormControl id="surname" type="text" (input)="inputSurname($event)">
+          </div>
+          <div class="mb-3">
+            <label  cLabel for="date-of-birthday">Нова дата народження</label>
+            <input cFormControl id="date-of-birthday" type="date" (input)="inputDateOfBirthday($event)">
+          </div>
+          <div class="mb-3">
+            <label  cLabel for="city">Нове місто</label>
+            <input cFormControl id="city" type="text" (input)="inputCity($event)">
+          </div>
+          <button cButton color="success" (click)="changeUser()">Змінити</button>
+        </form>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
+
+<c-row>
+  <c-col xs>
+    <c-card class="mb-4">
+      <c-card-header>Прив'язка Телеграм боту</c-card-header>
+      <c-card-body>
+        <form cForm>
+          <div class="mb-3">
+            <label cLabel></label>
+            <label  cLabel for="telegram-id">Telegram Id</label>
+            <input cFormControl id="telegram-id" type="number" [disabled]="isSetTelegramId" (input)="inputTelegramId($event)" [placeholder]="user.telegramId">
+          </div>
+          <button cButton color="success" (click)="setTelegramId()" [disabled]="isSetTelegramId">Зберегти</button>
+          <!-- <br class="mt-0"> -->
+          <hr class="mt-3" />
+          <button cButton color="info" (click)="toggleCollapse()">Інструкція</button>
+          <div [visible]="isShowInstruction" cCollapse>
+            <c-card class="mt-3 shadow">
+              <c-card-body>
+                Для того, щоб прив'язати Телеграм бота до системи, вам потрібно:
+                <ol>
+                  <li>Знайти та запустити самого бота <a href="https://t.me/NotificationForTurnOffPowerBot">@NotificationForTurnOffPowerBot</a></li>
+                  <li>Натиснути на кнопку "Прив'язати сайт"</li>
+                  <li>Скопіювати ваш Telegram Id та ввести його в поле вище</li>
+                  <li>Зберегти зміни</li>
+                </ol>
+                Готово. Телеграм бот прив'язаний до сайту та вашого облікового запису. Тепер, ви будете отримувати сповіщення про екстренне відключення світла в даному боті
+              </c-card-body>
+            </c-card>
+          </div>
+        </form>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
+
+<c-row>
+  <c-col xs>
+    <c-card class="mb-4">
+      <c-card-header id="delete">Видалення облікового запису</c-card-header>
+      <c-card-body>
+        <form cForm>
+          <div class="mb-3">
+            <label  cLabel>Для того, щоб видалити ваш обліковий запис, настиніть на кнопку нижче</label>
+          </div>
+          <button cButton color="danger" (click)="deleteAccount()">Видалити</button>
+        </form>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
+

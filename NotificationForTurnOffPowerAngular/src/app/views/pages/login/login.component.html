@@ -1,0 +1,55 @@
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+  <c-container>
+    <c-row class="justify-content-center">
+      <c-col md="8">
+        <button cButton color="secondary" type="button" size="sm" shape="rounded-pill" routerLink="/home" class="d-grid gap-2 d-md-flex justify-content-md-start"><svg cIcon name="cilArrowLeft"></svg></button>
+        <c-card-group>
+          <c-card class="p-4">
+            <c-card-body>
+              <form cForm>
+                <h1>Вхід</h1>
+                <p class="text-medium-emphasis">Вхід до облікового запису</p>
+                <c-input-group class="mb-3">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilUser"></svg>
+                  </span>
+                  <input autoComplete="username" cFormControl placeholder="Username" (input)="onChangeLogin($event)"/>
+                </c-input-group>
+                <c-input-group class="mb-4">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilLockLocked"></svg>
+                  </span>
+                  <input
+                    autoComplete="current-password"
+                    cFormControl
+                    placeholder="Password"
+                    type="password"
+                    (input)="onChangePass($event)"
+                  />
+                </c-input-group>
+                <c-row>
+                  <button cButton class="px-4" color="primary" (click)="login()">
+                    Вхід
+                  </button>
+                </c-row>
+              </form>
+            </c-card-body>
+          </c-card>
+          <c-card [ngStyle]="{'width.%': 44}" class="text-white bg-primary py-5">
+            <c-card-body class="text-center">
+              <div>
+                <h2>Реєстрація</h2>
+                <p>
+                  Якщо ви не зареєстровані в системі - спочатку зареєструйтесь!
+                </p>
+                <button [active]="true" cButton class="mt-3" color="primary" routerLink="/register">
+                  Зареєструватись зараз
+                </button>
+              </div>
+            </c-card-body>
+          </c-card>
+        </c-card-group>
+      </c-col>
+    </c-row>
+  </c-container>
+</div>

@@ -1,0 +1,76 @@
+
+<c-header>
+    <c-container fluid>
+      <c-header-brand [routerLink]>Сповіщення про вимкнення світла</c-header-brand>
+      <c-header-nav class="ms-auto">
+        <c-nav-item>
+          <a [active]="true" [routerLink] cNavLink cButton color="secondary" variant="ghost">Головна</a>
+        </c-nav-item>
+        <c-nav-item>
+          <a cNavLink routerLink="/register" cButton color="primary" variant="ghost">Реєстрація</a>
+        </c-nav-item>
+        <c-nav-item>
+            <a cNavLink routerLink="/login" cButton color="primary" variant="ghost">Вхід</a>
+          </c-nav-item>
+      </c-header-nav>
+    </c-container>
+    <c-header-divider></c-header-divider>
+  </c-header>
+
+<c-carousel>
+    <c-carousel-indicators></c-carousel-indicators>
+    <c-carousel-inner>
+      <c-carousel-item *ngFor="let slide of slides">
+        <img
+          alt="{{slide.title}}"
+          class="d-block w-100"
+          loading="lazy"
+          src="{{slide.src}}"
+        />
+        <c-carousel-caption class="d-none d-md-block">
+          <h3>{{slide.title}}</h3>
+          <p>{{slide.subtitle}}</p>
+        </c-carousel-caption>
+      </c-carousel-item>
+    </c-carousel-inner>
+    <c-carousel-control [routerLink] caption="Previous" direction="prev"></c-carousel-control>
+    <c-carousel-control [routerLink] caption="Next" direction="next"></c-carousel-control>
+  </c-carousel>
+
+<br/>
+<c-navbar colorScheme="light" class="bg-light">
+    <c-container fluid>
+      <a cNavbarBrand>Що ви отримаєте від використання Notification for turn off power (NFTOP)</a>
+    </c-container>
+  </c-navbar>
+
+<c-callout color="primary">
+    Систему, яка буде сповіщати вас у випадку можливого аварійного вимкнення світла
+  </c-callout>
+  <c-callout color="secondary">
+    Датчики на електростанціях перевірятимуть наявну кількість енергії на станції 24/7. Тому дана система має найактуальнішу інформацію про стан електроенергії в місті
+  </c-callout>
+  <c-callout color="success">
+    Зручний інтерфейс використання системи у вигляді веб-сайту та Телеграм боту. Вам не потрібно кожного дня заходити на сайт та перевіряти можливе відключення світла (як це реалізовано на сайті Yasno)
+  </c-callout>
+  <c-callout color="warning">
+    Після сповіщення ви будете розуміти, що з великою ймовірністю скоро відключать світло (так як дані надходять прямо від станцій). Тому ви встигнете зарядити свої пристрої (ліхтарики, сматрфони, ...)
+  </c-callout>
+  <c-callout color="info">
+    Після реєстрації, прив'яжіть Телеграм бот до вашого облікового запису та почніть використовувати систему
+  </c-callout>
+
+  <c-footer>
+    <div>
+      <a href="http://localhost:4200/#/dashboard" target="_blank">NFTOP</a>
+      <span> &copy; 2023 creativeLabs</span>
+    </div>
+    <div class="ms-auto">
+      Powered by
+      <a href="https://www.linkedin.com/in/mykola-korovchenko-872233251" target="_blank">
+        <span> Mykola</span>
+      </a>
+    </div>
+  </c-footer>
+
+

@@ -1,0 +1,62 @@
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+  <c-container>
+    <c-row class="justify-content-center">
+      <c-col lg="7" md="9" xl="6">
+        <button cButton color="secondary" type="button" size="sm" shape="rounded-pill" routerLink="/home" class="d-grid gap-2 d-md-flex justify-content-md-start"><svg cIcon name="cilArrowLeft"></svg></button>
+        <c-card class="mx-4">
+          <c-card-body class="p-4">
+            <form cForm>
+              <h1>Реєстрація</h1>
+              <p class="text-medium-emphasis">Створіть ваш обліковий запис</p>
+              <c-input-group class="mb-3">
+                <span cInputGroupText>
+                  <svg cIcon name="cilPeople"></svg>
+                </span>
+                <input autoComplete="name" cFormControl placeholder="Name" (input)="inputName($event)">
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <span cInputGroupText>
+                  <svg cIcon name="cilPeople"></svg>
+                </span>
+                <input autoComplete="surname" cFormControl placeholder="Surname" (input)="inputSurname($event)"/>
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <span cInputGroupText>
+                  <svg cIcon name="cilPencil"></svg>
+                </span>
+                <input autoComplete="date" cFormControl placeholder="Date of birthday" type="date" (input)="inputDateOfBirthday($event)"/>
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <span cInputGroupText>
+                  <svg cIcon name="cilMap"></svg>
+                </span>
+                <input autoComplete="city" cFormControl placeholder="City" (input)="inputCity($event)"/>
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <span cInputGroupText>
+                  <svg cIcon name="cilUser"></svg>
+                </span>
+                <input autoComplete="login" cFormControl placeholder="Login" (input)="inputLogin($event)"/>
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <span cInputGroupText>
+                  <svg cIcon name="cilLockLocked"></svg>
+                </span>
+                <input autoComplete="new-password" cFormControl placeholder="Password" type="password" (input)="inputPass($event)"/>
+              </c-input-group>
+              <c-input-group class="mb-4">
+                <span cInputGroupText>
+                  <svg cIcon name="cilLockLocked"></svg>
+                </span>
+                <input autoComplete="new-password" cFormControl placeholder="Repeat password" type="password" (input)="inputRepeatPass($event)"/>
+              </c-input-group>
+              <div class="d-grid">
+                <button cButton color="success" (click)="register()">Створити обліковий запис</button>
+              </div>
+            </form>
+          </c-card-body>
+        </c-card>
+      </c-col>
+    </c-row>
+  </c-container>
+</div>
