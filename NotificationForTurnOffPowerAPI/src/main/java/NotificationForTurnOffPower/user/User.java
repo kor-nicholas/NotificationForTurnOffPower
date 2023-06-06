@@ -16,6 +16,8 @@ public class User {
     private LocalDate dateofbirthday;
     private Integer age;
     private String city;
+    private String login;
+    private String pass;
 
     public User() {
     }
@@ -47,6 +49,8 @@ public class User {
     public String getCity() {
         return city;
     }
+    public String getLogin() { return login; }
+    public String getPass() { return pass; }
 
     public void setName(String name) {
         this.name = name;
@@ -71,4 +75,6 @@ public class User {
     public void setCity(String city) {
         this.city = city;
     }
+    public void setLogin(String login) { this.login = login; }
+    public void setPass(String pass) { this.pass = pass; }
 }

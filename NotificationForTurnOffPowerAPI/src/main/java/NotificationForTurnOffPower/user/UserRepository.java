@@ -9,4 +9,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     Optional<User> findUserByTelegramid(Integer telegramid);
     Optional<List<User>> findAllUsersByCity(String city);
     void deleteUserByTelegramid(Integer telegramid);
+
+    Optional<User> findUserByLogin(String login);
 }
