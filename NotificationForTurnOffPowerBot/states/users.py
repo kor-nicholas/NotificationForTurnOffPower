@@ -5,6 +5,7 @@ class Change(StatesGroup):
     surname = State()
     dataofbirthday = State()
     city = State()
+    address = State()
 
 class Delete(StatesGroup):
     agree = State()
@@ -14,3 +15,4 @@ class Register(StatesGroup):
     surname = State()
     dataofbirthday = State()
     city = State()
+    address = State()

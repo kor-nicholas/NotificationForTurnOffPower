@@ -5,9 +5,6 @@ start_keyboard = ReplyKeyboardMarkup(
         [
             KeyboardButton('Реєстрація'),
             KeyboardButton('Вхід')
-        ],
-        [
-            KeyboardButton('Прив\'язати сайт')
         ]
     ], resize_keyboard=True
 )

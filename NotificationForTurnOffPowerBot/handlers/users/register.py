@@ -40,29 +40,36 @@ async def register_dateofbirthday(message: types.Message, state: FSMContext):
 @dp.message_handler(content_types=['text'], state=Register.city)
 async def register_city(message: types.Message, state: FSMContext):
     await state.update_data(city=message.text)
+    await message.answer('Введіть вашу адресу')
+    await Register.address.set()
+
+@dp.message_handler(content_types=['text'], state=Register.address)
+async def register_address(message: types.Message, state: FSMContext):
+    await state.update_data(address=message.text)
     data = await state.get_data()
     await state.finish()
 
-    headers = {
-        'Content-Type': 'application/json'
-    }
+    # headers = {
+    #     'Content-Type': 'application/json'
+    # }
+    #
+    # body = {
+    #     'name': data['name'],
+    #     'surname': data['surname'],
+    #     'telegramid': message.chat.id,
+    #     'dateofbirthday': data['dateofbirthday'],
+    #     'age': data['age'],
+    #     'city': data['city'],
+    # }
+    #
+    # responce = requests.post('http://localhost:8080/users/add', headers=headers, json=body)
+    #
+    # if responce.status_code == 200:
+    #     await message.answer('Ви успішно зареєструвались')
+    # else:
+    #     await message.answer('Сталася помилка. Спробуйте пізніше')
 
-    body = {
-        'name': data['name'],
-        'surname': data['surname'],
-        'telegramid': message.chat.id,
-        'dateofbirthday': data['dateofbirthday'],
-        'age': data['age'],
-        'city': data['city'],
-    }
-
-    responce = requests.post('http://localhost:8080/users/add', headers=headers, json=body)
-
-    if responce.status_code == 200:
-        await message.answer('Ви успішно зареєструвались')
-    else:
-        await message.answer('Сталася помилка. Спробуйте пізніше')
-
+    await message.answer('Ви успішно зареєструвались')
     await login(message=message)
 
 
